@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <title>Erny & Zai - Wedding Invitation</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* General Global Setting */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            background: #f9f5f2;
+            font-family: "Josefin Sans", sans-serif;
+            width: 100%;
+            height: 100%;
+            color: #111111;
+        }
+
+        button, input, textarea {
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        /* Font face for Brittany Signature */
+        @font-face {
+            font-family: 'Brittany Signature';
+            src: url('fonts/BrittanySignature.woff2') format('woff2');
+        }
+
+        /* Wrapper Overlay */
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #f9f5f2;
+            transition: opacity 0.5s ease;
+        }
+
+        .wrapper.hidden {
+            opacity: 0;
+        }
+
+        /* Overlay that covers the entire viewport */
+        .overlay {
+            width: 420px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            background-image: url('img/intro-bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Center the button within the overlay */
+        .overlay .overlay-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+
+        /* Circular toggle button */
+        .overlay .overlay-content .toggle-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .overlay .overlay-content .toggle-button p {
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+            font-weight: 500;
+            font-family: "Brittany Signature", cursive;
+            color: #302b63;
+        }
+
+        .overlay .overlay-content .toggle-button .buka {
+            font-size: 16px;
+            font-weight: 300;
+            font-family: 'Josefin Sans', sans-serif;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Card */
+        .card {
+            display: none;
+            max-width: 420px;
+            margin: 0 auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            background: white;
+            border-radius: 3px;
+            font-size: 14px;
+            line-height: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section {
+            display: block;
+        }
+
+        /* Intro Section */
+        .card section.intro {
+            background: url('img/intro-bg.png'), linear-gradient(to right, #f9f5f2, #f9fcff, #f9f5f2);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            z-index: 500;
+            border-bottom: 1px solid rgb(195, 195, 195);
+        }
+
+        .card section.intro .content {
+            display: block;
+            padding: 200px 0px;
+            text-align: center;
+        }
+
+        .card section.intro .content img {
+            width: 50%;
+            height: 10%;
+        }
+
+        .card section.intro .content p {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card section.intro .content p.title {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #111111;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .card section.intro .content h2 {
+            margin-top: 60px;
+            font-family: "Brittany Signature", cursive;
+            font-size: 48px;
+            font-weight: 500;
+            color: #111111;
+        }
+
+        .card section.intro .content .date {
+            color: #111111;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 1px;
+            font-size: 16px;
+            margin-top: 100px;
+        }
+
+        /* Event Info Section */
+        .card section.info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 50px 0px;
+            background: linear-gradient(to right, #f9f5f2, #f9fcff, #f9f5f2);
+            min-height: 100vh;
+        }
+
+        .card section.info .assalamualaikum {
+            width: 80%;
+            height: 30%;
+            object-fit: cover;
+            position: relative;
+            z-index: 500;
+        }
+
+        .card section.info .event-info {
+            width: 75%;
+            text-align: center;
+            position: relative;
+            z-index: 500;
+        }
+
+        .card section.info .event-info p {
+            font-family: 'Josefin Sans', sans-serif;
+            color: #111111;
+        }
+
+        .card section.info .event-info .one {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .card section.info .event-info .three,
+        .card section.info .event-info .four {
+            margin-bottom: 15px;
+        }
+
+        .card section.info .event-info .one p,
+        .card section.info .event-info .three p,
+        .card section.info .event-info .four p,
+        .card section.info .event-info .five p {
+            color: #111111;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .card section.info .event-info .one .parent {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            gap: 5px;
+        }
+
+        .card section.info .event-info .one .parent p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .card section.info .event-info .two {
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            gap: 35px;
+        }
+
+        .card section.info .event-info .two p {
+            font-family: "Brittany Signature", cursive;
+            color: #731c3c;
+            font-size: 27px;
+            letter-spacing: 3px;
+        }
+
+        .card section.info .event-info .three .title,
+        .card section.info .event-info .four .title,
+        .card section.info .event-info .five .title {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Countdown Timer */
+        .card section.info .countdown .counter h1,
+        .card section.info .countdown .counter h2,
+        .card section.info .countdown .counter h3,
+        .card section.info .countdown .counter h4,
+        .card section.info .countdown .counter h5 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            color: #efebe0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card section.info .countdown .counter p,
+        .card section.info .countdown .counter span {
+            color: #d6d6d6b3;
+        }
+
+        .card section.info .countdown .container {
+            flex-grow: 1;
+            margin: 0 auto;
+            position: relative;
+            width: auto;
+            z-index: 500;
+        }
+
+        .card section.info .countdown .hero {
+            background: transparent;
+            min-height: 70vh;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero {
+                min-height: auto;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .campaign {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .card section.info .countdown .hero.connect-page {
+            min-height: auto;
+        }
+
+        .card section.info .countdown .hero .hero-body {
+            padding: 32px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero .hero-body {
+                padding: 2rem 0;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .counter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero .hero-body .counter {
+                margin: 2rem 0 0;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .title {
+            color: #9c9c9c;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .counter-boxes {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box {
+            background-color: #1a1c1ccc;
+            box-shadow: 0 5px 10px #0000004d;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            margin-right: 4px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box h1 {
+            color: #fff;
+            padding: 8px 0 0;
+            margin: 0;
+            font-size: 2.5rem;
+            line-height: 2rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box span {
+            color: #9c9c9c;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box span {
+                font-size: 10px;
+                letter-spacing: 0;
+            }
+        }
+
+        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box:last-of-type {
+            margin-right: 0;
+        }
+
+        /* Aturcara */
+        .card section.info .aturcara {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 500;
+            position: relative;
+        }
+
+        .card section.info .aturcara p {
+            font-family: 'Josefin Sans', sans-serif;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #111111;
+        }
+
+        .card section.info .aturcara .title {
+            color: #111111;
+            font-family: 'Josefin Sans', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .card section.info .aturcara .one,
+        .card section.info .aturcara .two,
+        .card section.info .aturcara .three,
+        .card section.info .aturcara .four {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card section.info .aturcara .one p,
+        .card section.info .aturcara .two p,
+        .card section.info .aturcara .three p,
+        .card section.info .aturcara .four p {
+            color: #111111;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .card section.info .aturcara .one p:nth-child(2),
+        .card section.info .aturcara .two p:nth-child(2),
+        .card section.info .aturcara .three p:nth-child(2),
+        .card section.info .aturcara .four p:nth-child(2) {
+            color: darkgrey;
+        }
+
+        /* Ucapan */
+        .card section.info .ucapan .container {
+            position: relative;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            z-index: 500;
+        }
+
+        .card section.info .ucapan .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 85%;
+        }
+
+        .card section.info .ucapan .content p {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        .card section.info .ucapan img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* RSVP */
+        .card section.info .rsvp {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            z-index: 500;
+        }
+
+        .card section.info .rsvp h2 {
+            text-transform: uppercase;
+            color: #111111;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card section.info .rsvp .container-message {
+            width: 95%;
+            height: 450px;
+            overflow-y: auto;
+            padding: 0px 16px;
+            border-top: 1px solid wheat;
+            border-bottom: 1px solid wheat;
+        }
+
+        .card section.info .rsvp .container-message .content {
+            overflow: hidden;
+            width: 100%;
+            white-space: normal;
+            text-overflow: ellipsis;
+            border-bottom: 1px solid #DDDDDD;
+        }
+
+        .card section.info .rsvp .container-message .content p {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            text-align: left;
+        }
+
+        .card section.info .rsvp .container-message .content p.name {
+            color: #731c3c;
+            margin-top: 10px;
+        }
+
+        .card section.info .rsvp .container-message .content p.name::before {
+            content: '--';
+            color: grey;
+            font-size: 0.9em;
+            margin-right: 8px;
+        }
+
+        .card section.info .rsvp .container-message .content p.name::after {
+            content: '--';
+            color: grey;
+            font-size: 16px;
+            margin-left: 8px;
+        }
+
+        .card section.info .rsvp .container-message .content p.message {
+            color: darkgrey;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card section.info .rsvp .container-message .content-empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card section.info .rsvp .container-message .content-empty p.empty-message {
+            color: darkgray;
+            text-align: center;
+        }
+
+        .card section.info .rsvp .container-message::-webkit-scrollbar {
+            width: 2px;
+            background-color: #ADD8E6;
+        }
+
+        .card section.info .rsvp .container-message::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgb(114, 243, 243);
+            -webkit-box-shadow: inset 0 0 6px rgb(1, 66, 66);
+            background-color: navy;
+            border-radius: 12px;
+        }
+
+        .card section.info .rsvp .beri-ucapan-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            gap: 5px;
+        }
+
+        .card section.info .rsvp .beri-ucapan-button button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0px;
+            width: 45%;
+            border-radius: 10px;
+            border: 1px solid grey;
+            background: #f9f5f2;
+            cursor: pointer;
+            gap: 10px;
+        }
+
+        .card section.info .rsvp .beri-ucapan-button button:hover {
+            background: #f9f5f2;
+            opacity: 0.8;
+        }
+
+        .card section.info .rsvp .beri-ucapan-button button .bx {
+            font-size: 16px;
+            color: #731c3c;
+        }
+
+        .card section.info .rsvp .beri-ucapan-button button span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .footer ul.menu {
+            max-width: 420px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            background: #731c3c;
+            border-radius: 20px 20px 0 0;
+            height: 4rem;
+            padding: 0 16px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .footer ul.menu li {
+            cursor: pointer;
+        }
+
+        .footer .bx {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Bottom Toggle */
+        .toggle-menu {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            max-width: 400px;
+            margin: 0 auto;
+            background: #731c3c;
+            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: bottom 0.4s;
+            z-index: 1000;
+            border-radius: 10px;
+        }
+
+        .toggle-menu.open {
+            bottom: 10%;
+        }
+
+        .toggle-menu h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .toggle-menu .calendar,
+        .toggle-menu .location,
+        .toggle-menu .music,
+        .toggle-menu .rsvp,
+        .toggle-menu .contact,
+        .toggle-menu .ucapan-tetamu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .toggle-menu .calendar p {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .toggle-menu .calendar p span {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+        }
+
+        .toggle-menu .calendar .button {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .toggle-menu .calendar .button button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            height: 40px;
+            cursor: pointer;
+            background: #f9f5f2;
+        }
+
+        .toggle-menu .calendar .button button:hover {
+            background: #f9f5f2;
+            opacity: 0.9;
+        }
+
+        .toggle-menu .calendar .button button .bx {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        .toggle-menu .calendar .button button .bxl-google,
+        .toggle-menu .location .button button .bxl-google {
+            background: linear-gradient(to bottom left, transparent 49%, #fbbc05 50%) 0 25%/48% 40%,
+                linear-gradient(to top left, transparent 49%, #fbbc05 50%) 0 75%/48% 40%,
+                linear-gradient(-40deg, transparent 53%, #ea4335 54%),
+                linear-gradient(45deg, transparent 46%, #4285f4 48%), #34a853;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .toggle-menu .calendar .button button span {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .toggle-menu .location p {
+            font-size: 16px;
+            font-weight: 300;
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+        }
+
+        .toggle-menu .location .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .toggle-menu .location .button button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 5px;
+            width: 180px;
+            height: 35px;
+            cursor: pointer;
+            background: #f9f5f2;
+        }
+
+        .toggle-menu .location .button button:hover {
+            background: #f9f5f2;
+            opacity: 0.9;
+        }
+
+        .toggle-menu .location .button button .bx,
+        .toggle-menu .location .button button .fa-waze {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        #music-menu {
+            padding: 20px 6px;
+        }
+
+        .toggle-menu .music p {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: wheat;
+            text-align: center;
+        }
+
+        #audio-player {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .toggle-menu .rsvp .button {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .toggle-menu .rsvp .button button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            padding: 8px 6px;
+            border: none;
+            border-radius: 5px;
+            gap: 5px;
+            cursor: pointer;
+            background: #f9f5f2;
+        }
+
+        .toggle-menu .rsvp .button button:hover {
+            background: #f9f5f2;
+            opacity: 0.9;
+        }
+
+        .toggle-menu .rsvp .button button i {
+            font-size: 24px;
+        }
+
+        .toggle-menu .rsvp .button #btn-hadir i {
+            color: green;
+        }
+
+        .toggle-menu .rsvp .button #btn-tidak-hadir i {
+            color: red;
+        }
+
+        .toggle-menu .contact .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .toggle-menu .contact .content .person {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-menu .contact .content .person button {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-menu .contact .content .person .first-section {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-menu .contact .content .person .first-section .bx {
+            font-size: 30px;
+            color: #731c3c;
+        }
+
+        .toggle-menu .contact .content .person .first-section .name {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .toggle-menu .contact .content .person .first-section .name span {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: #f9f5f2;
+            font-weight: 500;
+        }
+
+        .toggle-menu .contact .content .person .first-section .name span:nth-child(2) {
+            font-style: italic;
+            font-weight: 300;
+            font-size: 12;
+            color: lightgray;
+        }
+
+        .toggle-menu .contact .content .person .second-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle-menu .contact .content .person .second-section .bx {
+            color: #f9f5f2;
+            font-size: 30px;
+        }
+
+        .toggle-menu .ucapan-tetamu form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .toggle-menu .ucapan-tetamu form label {
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .toggle-menu .ucapan-tetamu form input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            outline: none;
+        }
+
+        .toggle-menu .ucapan-tetamu form textarea {
+            width: 100%;
+            resize: none;
+            padding: 12px 16px;
+            outline: none;
+            border-radius: 12px;
+        }
+
+        .toggle-menu .ucapan-tetamu .button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .toggle-menu .ucapan-tetamu .button button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 6px;
+            cursor: pointer;
+            background: #f9f5f2;
+            gap: 5px;
+        }
+
+        .toggle-menu .ucapan-tetamu .button button:hover {
+            background: #f9f5f2;
+            opacity: 0.9;
+        }
+
+        .toggle-menu .ucapan-tetamu .button button i {
+            font-size: 24px;
+        }
+
+        .toggle-menu .ucapan-tetamu .button button i.bxs-paper-plane {
+            color: #731c3c;
+        }
+
+        .toggle-menu .ucapan-tetamu .button button i.bx-x {
+            color: red;
+        }
+
+        .toggle-menu .success-message {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 16px 16px 20px 16px;
+            gap: 10px;
+        }
+
+        .toggle-menu .success-message i {
+            font-size: 64px;
+            color: greenyellow;
+        }
+
+        .toggle-menu .success-message .bx.bxs-sad {
+            color: grey;
+        }
+
+        .toggle-menu .success-message p {
+            font-size: 16px;
+            font-weight: 300;
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+        }
+
+        /* Animation */
+        .reveal.active {
+            opacity: 1;
+        }
+
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in-out;
+        }
+
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-top-1 {
+            animation: growth 0.5s ease-in-out;
+        }
+
+        .fade-top-2 {
+            animation: growth 0.8s ease-in-out;
+        }
+
+        .fade-top-3 {
+            animation: growth 1s ease-in-out;
+        }
+
+        .fade-top-4 {
+            animation: growth 1.2s ease-in-out;
+        }
+
+        @keyframes growth {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .divider {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            width: 50%;
+            height: 20px;
+        }
+
+        /* Background Animation */
+        .petal-container {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .petal {
+            position: absolute;
+            left: -10px;
+            background: #731c3c;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall 60s linear;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateX(var(--translate-x)) translateY(var(--translate-y)) rotate(720deg);
+            }
+        }
+        
+        /* Add loading indicator */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">Memuat data...</div>
+    
+    <div class="wrapper">
+        <div id="overlay" class="overlay">
+            <div class="overlay-content">
+                <button id="toggle-content" class="toggle-button">
+                    <p>erny</p>
+                    <p>zai</p>
+                    <p class="buka">Buka</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="petal-container"></div>
+        <!-- Intro Section -->
+        <section class="intro">
+            <div class="content">
+                <img src="img/bismillah.png" alt="" class="fade-top-1">
+                <p class="title fade-top-2">raikan penyatuan dua hati</p>
+                <h2 class="fade-top-3">erny</h2>
+                <h2 class="fade-top-3">&</h2>
+                <h2 class="fade-top-3">zai</h2>
+                <p class="date fade-top-4">
+                    <span>Khamis</span>
+                    <span>|</span>
+                    <span>25 Disember 2025</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Event Info Section -->
+        <section class="info">
+            <img src="img/assalamualaikum.png" alt="" class="assalamualaikum reveal fade-bottom">
+            <div class="event-info reveal fade-bottom">
+                <div class="one">
+                    <p>Dengan penuh kesyukuran</p>
+                    <p>kami</p>
+                    <div class="parent">
+                        <p>Ruhaya binti Mohd Yaakub</p>
+                    </div>
+                    <p>Menjemput</p>
+                    <p>Dato' | Datin | Tuan | Puan | Encik | Cik</p>
+                    <p>seisi keluarga hadir ke</p>
+                    <p>majlis perkahwinan puteri kami</p>
+                </div>
+                <div class="two">
+                    <p>Nur Ernyza Zabidi</p>
+                    <p>&</p>
+                    <p>Zainuddin Hazin</p>
+                </div>
+                <div class="three">
+                    <p class="title">Tempat</p>
+                    <p>PINGGIRBALI Homestay & Campsite</p>
+                    <p>Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
+                    <p>16700 Pasir Puteh, Kelantan</p>
+                </div>
+                <div class="four">
+                    <p class="title">Tarikh</p>
+                    <p>Khamis, 25 Disember 2025</p>
+                    <p>Bersamaan 05 Rejab 1447H</p>
+                </div>
+                <div class="five">
+                    <p class="title">Masa</p>
+                    <p>09:00 AM - 12:00 PM</p>
+                </div>
+            </div>
+            <!-- Aturcara & Countdown Section -->
+            <div class="countdown reveal fade-bottom">
+                <!-- Countdown Timer -->
+                <div class="hero connect-page">
+                    <div class="container">
+                        <div class="hero-body">
+                            <div class="campaign campaign-0">
+                                <div class="counter timer">
+                                    <span class="title">Menghitung hari</span>
+                                    <div class="counter-boxes">
+                                        <div class="count-box">
+                                            <h1 class="value day">0</h1>
+                                            <span>Hari</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value hour">0</h1>
+                                            <span>Jam</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value minute">0</h1>
+                                            <span>Minit</span>
+                                        </div>
+                                        <div class="count-box">
+                                            <h1 class="value second">0</h1>
+                                            <span>Saat</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aturcara -->
+            <div class="aturcara reveal fade-bottom">
+                <p class="title">aturcara majlis</p>
+                <div class="one">
+                    <p>Kehadiran Tetamu</p>
+                    <p>09:00 Pagi</p>
+                </div>
+                <div class="two">
+                    <p>Ketibaan Pengantin</p>
+                    <p>09:30 Pagi</p>
+                </div>
+                <div class="three">
+                    <p>Makan Beradab</p>
+                    <p>10:00 Pagi</p>
+                </div>
+                <div class="four">
+                    <p>Majlis Bersurai</p>
+                    <p>12:00 Tengahari</p>
+                </div>
+            </div>
+            <div class="ucapan reveal fade-bottom">
+                <div class="container">
+                    <img src="img/ucapan-bg.png" alt="">
+                    <div class="content">
+                        <p>Ya Allah, berkatilah majlis perkahwinan ini, limpahkan baraqah dan rahmat kepada kedua
+                            mempelai ini.
+                            Kurniakanlah mereka
+                            zuriat yang soleh dan solehah. Kekalkanlah jodoh mereka di dunia dan di akhirat dan
+                            sempurnakanlah
+                            agama mereka dengan
+                            berkat ikatan ini.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rsvp">
+                <h2 class="reveal fade-bottom">Ucapan</h2>
+                <div class="container-message reveal fade-bottom" id="messages-container">
+                    <!-- Messages will be loaded here by JavaScript -->
+                </div>
+                <div class="beri-ucapan-button reveal fade-bottom">
+                    <button id="kehadiran-btn">
+                        <i class='bx bxs-check-square'></i>
+                        <span>Sahkan Kehadiran</span>
+                    </button>
+                    <button id="ucapan-btn">
+                        <i class='bx bxs-pen'></i>
+                        <span>Berikan Ucapan</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="footer">
+            <ul class="menu">
+                <li id="calendar-btn"><i class='bx bx-calendar'></i></li>
+                <li id="location-btn"><i class='bx bx-map'></i></li>
+                <li id="music-btn"><i class='bx bx-music'></i></li>
+                <li id="rsvp-btn"><i class='bx bx-envelope'></i></li>
+                <li id="contact-btn"><i class='bx bx-phone'></i></li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Bottom Modal -->
+    <div id="calendar-menu" class="toggle-menu">
+        <div class="calendar">
+            <h1>Calendar</h1>
+            <p>
+                <span>25 Disember 2025</span>
+                <span>|</span>
+                <span>05 Rejab 1447H</span>
+            </p>
+            <div class="button">
+                <button class="google" onclick="addGoogleCalendar()">
+                    <i class='bx bxl-google'></i>
+                    <span>Tambah ke Kalendar</span>
+                </button>
+                <button class="apple" onclick="addAppleCalendar()">
+                    <i class='bx bxl-apple'></i>
+                    <span>Tambah ke Kalendar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="location-menu" class="toggle-menu">
+        <div class="location">
+            <h1>Lokasi</h1>
+            <p>PINGGIRBALI Homestay & Campsite</p>
+            <p>Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
+            <p>16700 Pasir Puteh, Kelantan</p>
+            <div class="button">
+                <button class="google" onclick="openGoogleMaps()">
+                    <i class='bx bxl-google'></i>
+                    <span>Google Maps</span>
+                </button>
+                <button class="waze" onclick="openWaze()">
+                    <i class="fa-brands fa-waze"></i>
+                    <span>Waze</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="music-menu" class="toggle-menu">
+        <div class="music">
+            <h1>Lagu</h1>
+            <p>Canon in D x Cicak</p>
+            <p>(Piano Cover by Nabilah Amin)</p>
+            <audio id="audio-player" controls loop>
+                <source type="audio/mp3" src="audio/canonindxcicakcikgunaim.mp3">
+            </audio>
+        </div>
+    </div>
+
+    <div id="rsvp-menu" class="toggle-menu">
+        <div class="rsvp">
+            <h1>Kehadiran</h1>
+            <div class="button">
+                <button type="button" id="btn-hadir">
+                    <i class='bx bx-check'></i>
+                    <span>Hadir</span>
+                </button>
+                <button type="button" id="btn-tidak-hadir">
+                    <i class='bx bx-x'></i>
+                    <span>Tidak Hadir</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-menu" class="toggle-menu">
+        <div class="contact">
+            <h1>Hubungi</h1>
+            <div class="content">
+                <div class="person">
+                    <div class="first-section">
+                        <i class='bx bxs-user-circle'></i>
+                        <div class="name">
+                            <span>Nur Ernyza Zabidi</span>
+                            <span>Pengantin Perempuan</span>
+                        </div>
+                    </div>
+                    <div class="second-section">
+                        <button onclick="makePhoneCall('+6013336308427')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+6013336308427')"><i class='bx bxl-whatsapp'></i></button>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="first-section">
+                        <i class='bx bxs-user-circle'></i>
+                        <div class="name">
+                            <span>Irfan Rahimi Zabidi</span>
+                            <span>Abang Pengantin Perempuan</span>
+                        </div>
+                    </div>
+                    <div class="second-section">
+                        <button onclick="makePhoneCall('+601119400159')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+601119400159')"><i class='bx bxl-whatsapp'></i></button>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="first-section">
+                        <i class='bx bxs-user-circle'></i>
+                        <div class="name">
+                            <span>Ilham Haziq Zabidi</span>
+                            <span>Adik Pengantin Perempuan</span>
+                        </div>
+                    </div>
+                    <div class="second-section">
+                        <button onclick="makePhoneCall('+60146670082')"><i class='bx bx-phone'></i></button>
+                        <button onclick="openWhatsApp('+60146670082')"><i class='bx bxl-whatsapp'></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ucapan-menu" class="toggle-menu">
+        <div class="ucapan-tetamu">
+            <h1>Sampaikan Ucapan</h1>
+            <form id="form-ucapan" class="form-ucapan">
+                <label for="name">Nama Anda</label>
+                <input type="text" id="name" name="name" placeholder="Uzumaki Naruto" required>
+
+                <label for="ucapan">Ucapan</label>
+                <textarea name="message" id="ucapan" cols="30" rows="10" placeholder="Selamat pengantin baru..." required></textarea>
+
+                <div class="button">
+                    <button type="submit" class="hantar" id="hantar">
+                        <i class='bx bxs-paper-plane'></i>
+                        <span>Hantar</span>
+                    </button>
+                    <button type="button" class="tutup">
+                        <i class='bx bx-x'></i>
+                        <span>Tutup</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- This container will hold the success message and will be dynamically populated -->
+    <div id="success-menu" class="toggle-menu"></div>
+
+    <script>
+        // JSONBin.io Configuration
+        const JSONBIN_BIN_ID = '68fe488dae596e708f2e3c7d'; // Replace with your actual bin ID
+        const JSONBIN_API_KEY = '$2a$10$TOqdHF1fDoB400QtAS9ECex1yk5BRoBs3dcZ6Pj9R9QJ3UZNFpYqS'; // Replace with your actual API key
+        const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+
+        // Default data structure
+        const defaultWeddingData = {
+            kehadiran: {
+                hadir: 0,
+                tidakHadir: 0
+            },
+            ucapan: []
+        };
+
+        let weddingData = { ...defaultWeddingData };
+
+        // Show/hide loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Load data from JSONBin.io
+        async function loadData() {
+            showLoading();
+            try {
+                const response = await fetch(JSONBIN_URL + '/latest', {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': JSONBIN_API_KEY,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    weddingData = result.record || defaultWeddingData;
+                } else {
+                    console.warn('Failed to load data from JSONBin, using default data');
+                    weddingData = { ...defaultWeddingData };
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                weddingData = { ...defaultWeddingData };
+            }
+            updateMessages();
+            hideLoading();
+        }
+
+        // Save data to JSONBin.io
+        async function saveData() {
+            showLoading();
+            try {
+                const response = await fetch(JSONBIN_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'X-Master-Key': JSONBIN_API_KEY,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(weddingData)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to save data');
+                }
+                console.log('Data saved successfully');
+            } catch (error) {
+                console.error('Error saving data:', error);
+                alert('Gagal menyimpan data. Sila cuba lagi.');
+            }
+            hideLoading();
+        }
+
+        // Update messages in the UI
+        function updateMessages() {
+            const container = document.getElementById('messages-container');
+            container.innerHTML = '';
+            
+            if (weddingData.ucapan.length === 0) {
+                container.innerHTML = `
+                    <div class="content-empty">
+                        <p class="empty-message">Tiada ucapan lagi. Silalah beri ucapan kepada dua mempelai ini!</p>
+                    </div>
+                `;
+            } else {
+                weddingData.ucapan.forEach(message => {
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'content';
+                    messageElement.innerHTML = `
+                        <p class="name">${message.name}</p>
+                        <p class="message">${message.message}</p>
+                    `;
+                    container.appendChild(messageElement);
+                });
+            }
+        }
+
+        // Wrapper Overlay
+        document.getElementById("toggle-content").addEventListener("click", function () {
+            var wrapper = document.querySelector(".wrapper");
+            var card = document.querySelector(".card");
+
+            // Add the 'hidden' class to start the fade out transition
+            wrapper.classList.add("hidden");
+
+            // Wait for the transition to complete
+            wrapper.addEventListener("transitionend", function () {
+                // After fade out is complete, hide the wrapper and show the card
+                wrapper.style.display = "none";
+                card.style.display = "block";
+            }, { once: true });
+
+            // Play the audio
+            const audioPlayer = document.getElementById("audio-player");
+            audioPlayer.play();
+        });
+
+        // Timer Countdown
+        function setupCountdown(campaignSelector, startTimeMillis, endTimeMillis) {
+            var second = 1000;
+            var minute = second * 60;
+            var hour = minute * 60;
+            var day = hour * 24;
+
+            function calculateRemaining() {
+                var now = new Date().getTime();
+                return now >= startTimeMillis && now < endTimeMillis ? endTimeMillis - now : 0;
+            }
+
+            var didRefresh = false;
+            var previousGap = calculateRemaining();
+
+            function countdown() {
+                var gap = calculateRemaining();
+                var shouldRefresh = previousGap > day && gap <= day || previousGap > 0 && gap === 0;
+
+                previousGap = gap;
+
+                var textDay = Math.floor(gap / day);
+                var textHour = Math.floor((gap % day) / hour);
+                var textMinute = Math.floor((gap % hour) / minute);
+                var textSecond = Math.floor((gap % minute) / second);
+
+                if (document.querySelector(campaignSelector + ' .timer')) {
+                    document.querySelector(campaignSelector + ' .day').innerText = textDay;
+                    document.querySelector(campaignSelector + ' .hour').innerText = textHour;
+                    document.querySelector(campaignSelector + ' .minute').innerText = textMinute;
+                    document.querySelector(campaignSelector + ' .second').innerText = textSecond;
+                }
+
+                if (shouldRefresh && !didRefresh) {
+                    didRefresh = true;
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 30000 + Math.random() * 90000);
+                }
+            }
+
+            countdown();
+            setInterval(countdown, 1000);
+        }
+
+        // Add to Calendar
+        const event = {
+            title: "Jemputan Kahwin Erny & Zai",
+            startDate: "20251225T000000Z",
+            endDate: "20251225T235959Z",
+            location: "Lot 3284 Jalan, Kuala Semerak, Tok Bali, 16700 Pasir Puteh, Kelantan",
+            description: "Kami menjemput tuan/puan hadir ke majlis perkahwinan anakanda kami.",
+        };
+
+        function generateGoogleCalendarLink(event) {
+            const { title, startDate, endDate, location, description } = event;
+
+            const baseUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+            const params = new URLSearchParams({
+                text: title,
+                dates: `${startDate}/${endDate}`,
+                details: description,
+                location: location,
+            });
+
+            return `${baseUrl}&${params.toString()}`;
+        }
+
+        function generateICS(event) {
+            const { title, startDate, endDate, location, description } = event;
+
+            return `
+                BEGIN:VCALENDAR
+                VERSION:2.0
+                BEGIN:VEVENT
+                SUMMARY:${title}
+                DTSTART:${startDate}
+                DTEND:${endDate}
+                LOCATION:${location}
+                DESCRIPTION:${description}
+                END:VEVENT
+                END:VCALENDAR
+            `.trim();
+        }
+
+        function downloadICS(filename, content) {
+            const blob = new Blob([content], { type: "text/calendar" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function addGoogleCalendar() {
+            const googleLink = generateGoogleCalendarLink(event);
+            window.open(googleLink, "_blank");
+        }
+
+        function addAppleCalendar() {
+            const icsContent = generateICS(event);
+            downloadICS("event.ics", icsContent);
+        }
+
+        // Location for Google and Waze
+        function openGoogleMaps() {
+            const latitude = 5.87975933172112;
+            const longitude = 102.48561006056134;
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&travelmode=driving`;
+
+            window.open(googleMapsUrl, "_blank");
+        }
+
+        function openWaze() {
+            const latitude = 5.87975933172112;
+            const longitude = 102.48561006056134;
+            const wazeUrl = `waze://?ll=${latitude},${longitude}&navigate=yes`;
+
+            window.open(wazeUrl, "_blank");
+        }
+
+        // Contact
+        function openWhatsApp(phoneNumber) {
+            const message = "Kad Jemputan Kahwin. Hello, maaf mengganggu. Saya ingin bertanyakan sesuatu berkenaan majlis perkahwinan ini.";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, "_blank");
+        }
+
+        function makePhoneCall(phoneNumber) {
+            const callUrl = `tel:${phoneNumber}`;
+            window.location.href = callUrl;
+        }
+
+        // Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 10;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Background Animation
+        const petalContainer = document.querySelector('.petal-container');
+
+        const maxPetals = 70;
+        const petalInterval = 100;
+
+        function createPetal() {
+            if (petalContainer.childElementCount < maxPetals) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+
+                const startY = Math.random() * 100;
+                const duration = 4 + Math.random() * 2;
+
+                const petalSize = 5 + Math.random() * 10;
+                const petalOpacity = 0.3 + Math.random() * 0.5;
+
+                petal.style.top = `${startY}%`;
+                petal.style.width = `${petalSize}px`;
+                petal.style.height = `${petalSize}px`;
+                petal.style.opacity = petalOpacity;
+                petal.style.animationDuration = `${duration}s`;
+
+                const translateX = 300 + Math.random() * 120;
+                const translateY = 300 + Math.random() * 120;
+
+                petal.style.setProperty('--translate-x', `${translateX}px`);
+                petal.style.setProperty('--translate-y', `${translateY}px`);
+
+                petalContainer.appendChild(petal);
+
+                setTimeout(() => {
+                    petalContainer.removeChild(petal);
+                }, duration * 1000);
+            }
+        }
+
+        setInterval(createPetal, petalInterval);
+
+        // Toggle Menu
+        const toggleButtons = {
+            'calendar-btn': 'calendar-menu',
+            'location-btn': 'location-menu',
+            'music-btn': 'music-menu',
+            'rsvp-btn': 'rsvp-menu',
+            'ucapan-btn': 'ucapan-menu',
+            'contact-btn': 'contact-menu',
+            'kehadiran-btn': 'rsvp-menu'
+        };
+
+        function toggleMenu(menuId, event) {
+            event.stopPropagation();
+            const menu = document.getElementById(menuId);
+
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                closeAllMenus();
+                menu.classList.add('open');
+            }
+        }
+
+        function closeAllMenus() {
+            for (const menuId of Object.values(toggleButtons)) {
+                const menu = document.getElementById(menuId);
+                if (menu.classList.contains('open')) {
+                    menu.classList.remove('open');
+                }
+            }
+        }
+
+        for (const [buttonId, menuId] of Object.entries(toggleButtons)) {
+            const button = document.getElementById(buttonId);
+            button.addEventListener('click', (event) => toggleMenu(menuId, event));
+        }
+
+        document.addEventListener('click', () => closeAllMenus());
+
+        for (const menuId of Object.values(toggleButtons)) {
+            const menu = document.getElementById(menuId);
+            menu.addEventListener('click', (event) => event.stopPropagation());
+        }
+
+        function closeMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            }
+        }
+
+        const closeButton = document.querySelector('#ucapan-menu .tutup');
+        if (closeButton) {
+            closeButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                closeMenu('ucapan-menu');
+            });
+        }
+
+        // Handle Form
+        document.getElementById("form-ucapan").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('ucapan').value;
+
+            if (name && message) {
+                // Add message to data
+                weddingData.ucapan.push({
+                    name: name,
+                    message: message,
+                    timestamp: new Date().toISOString()
+                });
+
+                // Save data
+                await saveData();
+
+                // Update UI
+                updateMessages();
+
+                // Display success message
+                const successMenu = document.getElementById("success-menu");
+                successMenu.innerHTML = "<div class='success-message'><i class='bx bx-check'></i><p>Mesej anda berjaya dihantar!</p></div>";
+                successMenu.classList.add("open");
+
+                // Add timer
+                setTimeout(function() {
+                    successMenu.classList.remove("open");
+                }, 3000);
+
+                // Close the ucapan menu
+                closeMenu('ucapan-menu');
+
+                // Reset form
+                document.getElementById("form-ucapan").reset();
+            }
+        });
+
+        // Handle Kehadiran Count
+        async function incrementCount(type, successMessage, iconClass, closeMenuId) {
+            if (type === 'hadir') {
+                weddingData.kehadiran.hadir++;
+            } else if (type === 'tidakHadir') {
+                weddingData.kehadiran.tidakHadir++;
+            }
+
+            // Save data
+            await saveData();
+
+            // Display the success message
+            const successMenu = document.getElementById("success-menu");
+            successMenu.innerHTML = `<div class='success-message'><i class='${iconClass}'></i><p>${successMessage}</p></div>`;
+            successMenu.classList.add("open");
+
+            // Add timer
+            setTimeout(function() {
+                successMenu.classList.remove("open");
+            }, 3000);
+
+            // Close the menu
+            if (closeMenuId) {
+                closeMenu(closeMenuId);
+            }
+        }
+
+        document.getElementById("btn-hadir").onclick = function() {
+            incrementCount('hadir', "Kami menantikan kedatangan anda!", 'bx bxs-wink-smile', 'rsvp-menu');
+        };
+
+        document.getElementById("btn-tidak-hadir").onclick = function() {
+            incrementCount('tidakHadir', "Maaf, mungkin lain kali.", 'bx bxs-sad', 'rsvp-menu');
+        };
+
+        // Initialize
+        document.addEventListener("DOMContentLoaded", async function() {
+            await loadData();
+            setupCountdown(".campaign-0", new Date().getTime(), new Date('2025-12-25').getTime());
+        });
+    </script>
+</body>
+</html>

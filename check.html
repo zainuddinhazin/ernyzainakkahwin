@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semak Data - Erny & Zai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e4e9ed;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .kehadiran {
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .kehadiran .hadir,
+        .kehadiran .tidak-hadir {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kehadiran .hadir span {
+            font-size: 48px;
+            color: rgb(0, 255, 0);
+        }
+
+        .kehadiran .tidak-hadir span {
+            font-size: 48px;
+            color: red;
+        }
+
+        .ucapan {
+            width: 100%;
+            height: 100%;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        th {
+            text-align: left;
+            color: #FFFFFF;
+        }
+
+        td {
+            color: #000000;
+        }
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 10%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 20%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 50%;
+        }
+
+        thead th {
+            background-color: #55608f;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        tbody td {
+            position: relative;
+        }
+
+        tbody td:hover:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #731c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .back-button:hover {
+            background-color: #5a1530;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>    
+    <a href="index.html" class="back-button">Kembali ke Laman Utama</a>
+    <div class="loading" id="loading">Memuat data...</div>
+    
+    <h2 class="title">Semak Data Kehadiran & Ucapan</h2>
+
+    <div class="kehadiran">
+        <div class="hadir">
+            <h3 class="title">Jumlah tetamu hadir:</h3>
+            <span id="hadir-count">0</span>
+        </div>
+        <div class="tidak-hadir">
+            <h3 class="title">Jumlah tetamu tidak hadir:</h3>
+            <span id="tidak-hadir-count">0</span>
+        </div>
+    </div>
+    
+    <div class="ucapan">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bil</th>
+                    <th>Nama</th>
+                    <th>Ucapan</th>
+                </tr>
+            </thead>
+            <tbody id="messages-table">
+                <!-- Messages will be loaded here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // JSONBin.io Configuration (same as in index.html)
+        const JSONBIN_BIN_ID = '68fe488dae596e708f2e3c7d'; // Replace with your actual bin ID
+        const JSONBIN_API_KEY = '$2a$10$TOqdHF1fDoB400QtAS9ECex1yk5BRoBs3dcZ6Pj9R9QJ3UZNFpYqS'; // Replace with your actual API key
+        const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+
+        // Show/hide loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Load data from JSONBin.io
+        async function loadData() {
+            showLoading();
+            try {
+                const response = await fetch(JSONBIN_URL + '/latest', {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': JSONBIN_API_KEY,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    const weddingData = result.record;
+                    
+                    // Update attendance counts
+                    document.getElementById('hadir-count').textContent = weddingData.kehadiran.hadir || 0;
+                    document.getElementById('tidak-hadir-count').textContent = weddingData.kehadiran.tidakHadir || 0;
+                    
+                    // Update messages table
+                    const tableBody = document.getElementById('messages-table');
+                    tableBody.innerHTML = '';
+                    
+                    if (weddingData.ucapan && weddingData.ucapan.length > 0) {
+                        weddingData.ucapan.forEach((message, index) => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${index + 1}</td>
+                                <td>${message.name}</td>
+                                <td>${message.message}</td>
+                            `;
+                            tableBody.appendChild(row);
+                        });
+                    } else {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td colspan="3" style="text-align: center;">Tiada ucapan lagi.</td>
+                        `;
+                        tableBody.appendChild(row);
+                    }
+                } else {
+                    throw new Error('Failed to load data');
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                
+                // No data found
+                document.getElementById('hadir-count').textContent = '0';
+                document.getElementById('tidak-hadir-count').textContent = '0';
+                
+                const tableBody = document.getElementById('messages-table');
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="text-align: center;">Tiada data ditemui.</td>
+                    </tr>
+                `;
+            }
+            hideLoading();
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
