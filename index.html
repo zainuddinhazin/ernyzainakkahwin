@@ -5,781 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- HTML Meta Tags -->
-	<title>Raikan penyatuan dua hati, Erny & Zai.</title>
-	<meta name="description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
+    <title>Raikan penyatuan dua hati, Erny & Zai.</title>
+    <meta name="description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
 
-	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://ernyzainakkahwin.dpdns.org">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Raikan penyatuan dua hati, Erny & Zai.">
-	<meta property="og:description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
-	<meta property="og:image" content="https://ernyzainakkahwin.dpdns.org/img/thumbnail.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://ernyzainakkahwin.dpdns.org">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Raikan penyatuan dua hati, Erny & Zai.">
+    <meta property="og:description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
+    <meta property="og:image" content="https://ernyzainakkahwin.dpdns.org/img/thumbnail.png">
 
-	<!-- Twitter Meta Tags -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta property="twitter:domain" content="ernyzainakkahwin.dpdns.org">
-	<meta property="twitter:url" content="https://ernyzainakkahwin.dpdns.org">
-	<meta name="twitter:title" content="Raikan penyatuan dua hati, Erny & Zai.">
-	<meta name="twitter:description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
-	<meta name="twitter:image" content="https://ernyzainakkahwin.dpdns.org/img/thumbnail.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="ernyzainakkahwin.dpdns.org">
+    <meta property="twitter:url" content="https://ernyzainakkahwin.dpdns.org">
+    <meta name="twitter:title" content="Raikan penyatuan dua hati, Erny & Zai.">
+    <meta name="twitter:description" content="Dengan penuh kesyukuran, kami, Ruhaya binti Mohd Yaakub & keluarga menjemput Dato'/Datin/Tuan/Puan/Encik/Cik seisi keluarga hadir ke majlis perkahwinan puteri kami.">
+    <meta name="twitter:image" content="https://ernyzainakkahwin.dpdns.org/img/thumbnail.png">
 
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <title>Erny & Zai - Jemputan Kahwin</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <style>
-        /* General Global Setting */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+		@theme {
+			--font-josefin: 'Josefin Sans', sans-serif;
 
-        body {
-            position: relative;
-            background: #f9f5f2;
-            font-family: "Josefin Sans", sans-serif;
-            width: 100%;
-            height: 100%;
-            color: #111111;
-        }
+			--color-primary: #731c3c;
+			--color-light: #f9f5f2;
 
-        button, input, textarea {
-            font-family: "Josefin Sans", sans-serif;
-        }
+			--animate-fade-bottom: fade-bottom 1s ease-in-out;
+			--animate-growth: growth 0.5s ease-in-out;
+			--animate-fall: fall 60s linear;
 
-		button {
-			color: #111111;
+			@keyframes fade-bottom {
+			0% { transform: translateY(50px); opacity: 0; }
+			100% { transform: translateY(0); opacity: 1; }
+			}
+
+			@keyframes growth {
+			0% { transform: scale(0); opacity: 0; }
+			100% { transform: scale(1); opacity: 1; }
+			}
+
+			@keyframes fall {
+			0% { transform: translateX(0) rotate(0deg); }
+			100% { transform: translateX(var(--translate-x)) translateY(var(--translate-y)) rotate(720deg); }
+			}
 		}
-
+	</style>
+    
+    <style>
         /* Font face for Brittany Signature */
         @font-face {
             font-family: 'Brittany Signature';
             src: url('fonts/BrittanySignature.woff2') format('woff2');
         }
-
-        /* Wrapper Overlay */
-        .wrapper {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: #f9f5f2;
-            transition: opacity 0.5s ease;
-        }
-
-        .wrapper.hidden {
-            opacity: 0;
-        }
-
-        /* Overlay that covers the entire viewport */
-        .overlay {
-            width: 420px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-            background-image: url('img/intro-bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Center the button within the overlay */
-        .overlay .overlay-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            backdrop-filter: blur(3px);
-        }
-
-        /* Circular toggle button */
-        .overlay .overlay-content .toggle-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            font-size: 24px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .overlay .overlay-content .toggle-button p {
-            margin: 0;
-            padding: 0;
-            font-size: 30px;
-            font-weight: 500;
-            font-family: "Brittany Signature", cursive;
-            color: #302b63;
-        }
-
-        .overlay .overlay-content .toggle-button .buka {
-            font-size: 16px;
-            font-weight: 300;
-            font-family: 'Josefin Sans', sans-serif;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        /* Card */
-        .card {
-            display: none;
-            max-width: 420px;
-            margin: 0 auto;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-            background: white;
-            border-radius: 3px;
-            font-size: 14px;
-            line-height: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-
-        section {
-            display: block;
-        }
-
-        /* Intro Section */
-        .card section.intro {
-            background: url('img/intro-bg.png'), linear-gradient(to right, #f9f5f2, #f9fcff, #f9f5f2);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            z-index: 500;
-            border-bottom: 1px solid rgb(195, 195, 195);
-        }
-
-        .card section.intro .content {
-            display: block;
-            padding: 200px 0px;
-            text-align: center;
-        }
-
-        .card section.intro .content img {
-            width: 50%;
-            height: 10%;
-        }
-
-        .card section.intro .content p {
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .card section.intro .content p.title {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            color: #111111;
-            text-transform: uppercase;
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .card section.intro .content h2 {
-            margin-top: 60px;
-            font-family: "Brittany Signature", cursive;
-            font-size: 48px;
-            font-weight: 500;
-            color: #111111;
-        }
-		
-        .card section.intro .content h2:nth-of-type(3) {
-            margin-top: 30px;
-        }
-
-        .card section.intro .content .date {
-            color: #111111;
-            font-family: 'Josefin Sans', sans-serif;
-            letter-spacing: 1px;
-            font-size: 16px;
-            margin-top: 100px;
-        }
-
-        /* Event Info Section */
-        .card section.info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 50px 0px;
-            background: linear-gradient(to right, #f9f5f2, #f9fcff, #f9f5f2);
-            min-height: 100vh;
-        }
-
-        .card section.info .assalamualaikum {
-            width: 80%;
-            height: 30%;
-            object-fit: cover;
-            position: relative;
-            z-index: 500;
-        }
-
-        .card section.info .event-info {
-            width: 75%;
-            text-align: center;
-            position: relative;
-            z-index: 500;
-        }
-
-        .card section.info .event-info p {
-            font-family: 'Josefin Sans', sans-serif;
-            color: #111111;
-        }
-
-        .card section.info .event-info .one {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 3px;
-        }
-
-        .card section.info .event-info .three,
-        .card section.info .event-info .four {
-            margin-bottom: 15px;
-        }
-
-        .card section.info .event-info .one p,
-        .card section.info .event-info .three p,
-        .card section.info .event-info .four p,
-        .card section.info .event-info .five p {
-            color: #111111;
-            font-weight: 300;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        .card section.info .event-info .one .parent {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            gap: 5px;
-        }
-
-        .card section.info .event-info .one .parent p {
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-
-        .card section.info .event-info .two {
-            display: flex;
-            flex-direction: column;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            gap: 35px;
-        }
-
-        .card section.info .event-info .two p {
-            font-family: "Brittany Signature", cursive;
-            color: #731c3c;
-            font-size: 27px;
-            letter-spacing: 3px;
-        }
-
-        .card section.info .event-info .three .title,
-        .card section.info .event-info .four .title,
-        .card section.info .event-info .five .title {
-            margin-top: 30px;
-            font-size: 18px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        /* Countdown Timer */
-        .card section.info .countdown .counter h1,
-        .card section.info .countdown .counter h2,
-        .card section.info .countdown .counter h3,
-        .card section.info .countdown .counter h4,
-        .card section.info .countdown .counter h5 {
-            font-family: 'Josefin Sans', sans-serif;
-            font-weight: 400;
-            color: #efebe0;
-            padding: 0;
-            margin: 0;
-        }
-
-        .card section.info .countdown .counter p,
-        .card section.info .countdown .counter span {
-            color: #d6d6d6b3;
-        }
-
-        .card section.info .countdown .container {
-            flex-grow: 1;
-            margin: 0 auto;
-            position: relative;
-            width: auto;
-            z-index: 500;
-        }
-
-        .card section.info .countdown .hero {
-            background: transparent;
-            min-height: 70vh;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero {
-                min-height: auto;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .campaign {
-            flex-direction: column;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .card section.info .countdown .hero.connect-page {
-            min-height: auto;
-        }
-
-        .card section.info .countdown .hero .hero-body {
-            padding: 32px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero .hero-body {
-                padding: 2rem 0;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .counter {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 3rem 0;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero .hero-body .counter {
-                margin: 2rem 0 0;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .title {
-            color: #9c9c9c;
-            font-size: 1rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .counter-boxes {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box {
-            background-color: #1a1c1ccc;
-            box-shadow: 0 5px 10px #0000004d;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 100px;
-            margin-right: 4px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box {
-                width: 70px;
-                height: 70px;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box h1 {
-            color: #fff;
-            padding: 8px 0 0;
-            margin: 0;
-            font-size: 2.5rem;
-            line-height: 2rem;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box h1 {
-                font-size: 2rem;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box span {
-            color: #9c9c9c;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box span {
-                font-size: 10px;
-                letter-spacing: 0;
-            }
-        }
-
-        .card section.info .countdown .hero .hero-body .counter .counter-boxes .count-box:last-of-type {
-            margin-right: 0;
-        }
-
-        /* Aturcara */
-        .card section.info .aturcara {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            z-index: 500;
-            position: relative;
-        }
-
-        .card section.info .aturcara p {
-            font-family: 'Josefin Sans', sans-serif;
-            text-align: center;
-            letter-spacing: 1px;
-            color: #111111;
-        }
-
-        .card section.info .aturcara .title {
-            color: #111111;
-            font-family: 'Josefin Sans', sans-serif;
-            text-transform: uppercase;
-            font-size: 18px;
-			font-weight: 300;
-        }
-
-        .card section.info .aturcara .one,
-        .card section.info .aturcara .two,
-        .card section.info .aturcara .three,
-        .card section.info .aturcara .four {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .card section.info .aturcara .one p,
-        .card section.info .aturcara .two p,
-        .card section.info .aturcara .three p,
-        .card section.info .aturcara .four p {
-            color: #111111;
-            font-weight: 300;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        .card section.info .aturcara .one p:nth-child(2),
-        .card section.info .aturcara .two p:nth-child(2),
-        .card section.info .aturcara .three p:nth-child(2),
-        .card section.info .aturcara .four p:nth-child(2) {
-            color: darkgrey;
-        }
-
-        /* Ucapan */
-        .card section.info .ucapan .container {
-            position: relative;
-            max-width: 420px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 30px;
-            z-index: 500;
-        }
-
-        .card section.info .ucapan .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 85%;
-        }
-
-        .card section.info .ucapan .content p {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            margin: 0;
-            text-align: center;
-        }
-
-        .card section.info .ucapan img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* RSVP */
-        .card section.info .rsvp {
-            position: relative;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 30px;
-            margin-bottom: 50px;
-            z-index: 500;
-        }
-
-        .card section.info .rsvp h2 {
-            text-transform: uppercase;
-            color: #111111;
-            text-align: center;
-            margin-bottom: 30px;
-			font-weight: 300;
-        }
-
-        .card section.info .rsvp .container-message {
-            width: 95%;
-            height: 450px;
-            overflow-y: auto;
-            padding: 0px 16px;
-            border-top: 1px solid wheat;
-            border-bottom: 1px solid wheat;
-        }
-
-        .card section.info .rsvp .container-message .content {
-            overflow: hidden;
-            width: 100%;
-            white-space: normal;
-            text-overflow: ellipsis;
-            border-bottom: 1px solid #DDDDDD;
-        }
-
-        .card section.info .rsvp .container-message .content p {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            margin: 0;
-            text-align: left;
-        }
-
-        .card section.info .rsvp .container-message .content p.name {
-            color: #731c3c;
-            margin-top: 10px;
-        }
-
-        .card section.info .rsvp .container-message .content p.name::before {
-            content: '--';
-            color: grey;
-            font-size: 0.9em;
-            margin-right: 8px;
-        }
-
-        .card section.info .rsvp .container-message .content p.name::after {
-            content: '--';
-            color: grey;
-            font-size: 16px;
-            margin-left: 8px;
-        }
-
-        .card section.info .rsvp .container-message .content p.message {
-            color: darkgrey;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .card section.info .rsvp .container-message .content-empty {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .card section.info .rsvp .container-message .content-empty p.empty-message {
-            color: darkgray;
-            text-align: center;
-        }
-
-        .card section.info .rsvp .container-message::-webkit-scrollbar {
+        
+        .font-brittany {
+            font-family: 'Brittany Signature', cursive;
+        }
+        
+        /* Custom scrollbar for messages */
+        .custom-scrollbar::-webkit-scrollbar {
             width: 2px;
             background-color: #ADD8E6;
         }
-
-        .card section.info .rsvp .container-message::-webkit-scrollbar-thumb {
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
             box-shadow: inset 0 0 6px rgb(114, 243, 243);
             -webkit-box-shadow: inset 0 0 6px rgb(1, 66, 66);
             background-color: navy;
             border-radius: 12px;
         }
-
-        .card section.info .rsvp .beri-ucapan-button {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 50px;
-            gap: 5px;
-        }
-
-        .card section.info .rsvp .beri-ucapan-button button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 0px;
-            width: 45%;
-            border-radius: 10px;
-            border: 1px solid grey;
-            background: #f9f5f2;
-            cursor: pointer;
-            gap: 10px;
-        }
-
-        .card section.info .rsvp .beri-ucapan-button button:hover {
-            background: #f9f5f2;
-            opacity: 0.8;
-        }
-
-        .card section.info .rsvp .beri-ucapan-button button .bx {
-            font-size: 16px;
-            color: #731c3c;
-        }
-
-        .card section.info .rsvp .beri-ucapan-button button span {
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        /* Footer */
-        .footer {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .footer ul.menu {
-            max-width: 420px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-            background: #731c3c;
-            border-radius: 20px 20px 0 0;
-            height: 4rem;
-            padding: 0 16px;
-            margin: 0 auto;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .footer ul.menu li {
-            cursor: pointer;
-        }
-
-        .footer .bx {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        /* Bottom Toggle */
-        .toggle-menu {
-            position: fixed;
-            bottom: -100%;
-            left: 0;
-            right: 0;
-            max-width: 400px;
-            margin: 0 auto;
-            background: #731c3c;
-            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            transition: bottom 0.4s;
-            z-index: 1000;
-            border-radius: 10px;
-        }
-
-        .toggle-menu.open {
-            bottom: 10%;
-        }
-
-        .toggle-menu h1 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 10px;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .toggle-menu .calendar,
-        .toggle-menu .location,
-        .toggle-menu .music,
-        .toggle-menu .rsvp,
-        .toggle-menu .contact,
-        .toggle-menu .ucapan-tetamu {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-
-        .toggle-menu .calendar p {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .toggle-menu .calendar p span {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            color: white;
-        }
-
-        .toggle-menu .calendar .button {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .toggle-menu .calendar .button button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-radius: 5px;
-            width: 250px;
-            height: 40px;
-            cursor: pointer;
-            background: #f9f5f2;
-        }
-
-        .toggle-menu .calendar .button button:hover {
-            background: #f9f5f2;
-            opacity: 0.9;
-        }
-
-        .toggle-menu .calendar .button button .bx {
-            font-size: 20px;
-            margin-right: 5px;
-        }
-
-        .toggle-menu .calendar .button button .bxl-google,
-        .toggle-menu .location .button button .bxl-google {
+        
+        /* Google Calendar icon gradient */
+        .bxl-google {
             background: linear-gradient(to bottom left, transparent 49%, #fbbc05 50%) 0 25%/48% 40%,
                 linear-gradient(to top left, transparent 49%, #fbbc05 50%) 0 75%/48% 40%,
                 linear-gradient(-40deg, transparent 53%, #ea4335 54%),
@@ -790,459 +95,104 @@
             color: transparent;
             -webkit-text-fill-color: transparent;
         }
-
-        .toggle-menu .calendar .button button span {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        .toggle-menu .location p {
-            font-size: 16px;
-            font-weight: 300;
-            font-family: 'Josefin Sans', sans-serif;
-            color: white;
-        }
-
-        .toggle-menu .location .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-
-        .toggle-menu .location .button button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-radius: 5px;
-            width: 180px;
-            height: 35px;
-            cursor: pointer;
-            background: #f9f5f2;
-        }
-
-        .toggle-menu .location .button button:hover {
-            background: #f9f5f2;
-            opacity: 0.9;
-        }
-
-        .toggle-menu .location .button button .bx,
-        .toggle-menu .location .button button .fa-waze {
-            font-size: 20px;
-            margin-right: 5px;
-        }
-
-        #music-menu {
-            padding: 20px 6px;
-        }
-
-        .toggle-menu .music p {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            color: wheat;
-            text-align: center;
-        }
-
-        #audio-player {
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .toggle-menu .rsvp .button {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 10px;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .toggle-menu .rsvp .button button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60%;
-            padding: 8px 6px;
-            border: none;
-            border-radius: 5px;
-            gap: 5px;
-            cursor: pointer;
-            background: #f9f5f2;
-        }
-
-        .toggle-menu .rsvp .button button:hover {
-            background: #f9f5f2;
-            opacity: 0.9;
-        }
-
-        .toggle-menu .rsvp .button button i {
-            font-size: 24px;
-        }
-
-        .toggle-menu .rsvp .button #btn-hadir i {
-            color: green;
-        }
-
-        .toggle-menu .rsvp .button #btn-tidak-hadir i {
-            color: red;
-        }
-
-        .toggle-menu .contact .content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 5px;
-        }
-
-        .toggle-menu .contact .content .person {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .toggle-menu .contact .content .person button {
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .toggle-menu .contact .content .person .first-section {
-            display: flex;
-            gap: 5px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .toggle-menu .contact .content .person .first-section .bx {
-            font-size: 30px;
-            color: #731c3c;
-        }
-
-        .toggle-menu .contact .content .person .first-section .name {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .toggle-menu .contact .content .person .first-section .name span {
-            font-size: 16px;
-            font-family: 'Josefin Sans', sans-serif;
-            color: #f9f5f2;
-            font-weight: 500;
-        }
-
-        .toggle-menu .contact .content .person .first-section .name span:nth-child(2) {
-            font-style: italic;
-            font-weight: 300;
-            font-size: 12;
-            color: lightgray;
-        }
-
-        .toggle-menu .contact .content .person .second-section {
-            display: flex;
-            gap: 10px;
-        }
-
-        .toggle-menu .contact .content .person .second-section .bx {
-            color: #f9f5f2;
-            font-size: 30px;
-        }
-
-        .toggle-menu .ucapan-tetamu form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .toggle-menu .ucapan-tetamu form label {
-            text-align: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 500;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        .toggle-menu .ucapan-tetamu form input {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            outline: none;
-        }
-
-        .toggle-menu .ucapan-tetamu form textarea {
-            width: 100%;
-            resize: none;
-            padding: 12px 16px;
-            outline: none;
-            border-radius: 12px;
-        }
-
-        .toggle-menu .ucapan-tetamu .button {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .toggle-menu .ucapan-tetamu .button button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50%;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 6px;
-            cursor: pointer;
-            background: #f9f5f2;
-            gap: 5px;
-        }
-
-        .toggle-menu .ucapan-tetamu .button button:hover {
-            background: #f9f5f2;
-            opacity: 0.9;
-        }
-
-        .toggle-menu .ucapan-tetamu .button button i {
-            font-size: 24px;
-        }
-
-        .toggle-menu .ucapan-tetamu .button button i.bxs-paper-plane {
-            color: #731c3c;
-        }
-
-        .toggle-menu .ucapan-tetamu .button button i.bx-x {
-            color: red;
-        }
-
-        .toggle-menu .success-message {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 16px 16px 20px 16px;
-            gap: 10px;
-        }
-
-        .toggle-menu .success-message i {
-            font-size: 64px;
-            color: greenyellow;
-        }
-
-        .toggle-menu .success-message .bx.bxs-sad {
-            color: grey;
-        }
-
-        .toggle-menu .success-message p {
-            font-size: 16px;
-            font-weight: 300;
-            font-family: 'Josefin Sans', sans-serif;
-            color: white;
-        }
-
-        /* Animation */
-        .reveal.active {
-            opacity: 1;
-        }
-
-        .active.fade-bottom {
-            animation: fade-bottom 1s ease-in-out;
-        }
-
-        @keyframes fade-bottom {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .fade-top-1 {
-            animation: growth 0.5s ease-in-out;
-        }
-
-        .fade-top-2 {
-            animation: growth 0.8s ease-in-out;
-        }
-
-        .fade-top-3 {
-            animation: growth 1s ease-in-out;
-        }
-
-        .fade-top-4 {
-            animation: growth 1.2s ease-in-out;
-        }
-
-        @keyframes growth {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .divider {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            width: 50%;
-            height: 20px;
-        }
-
-        /* Background Animation */
-        .petal-container {
-            position: absolute;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .petal {
-            position: absolute;
-            left: -10px;
-            background: #731c3c;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: fall 60s linear;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateX(0) rotate(0deg);
-            }
-            100% {
-                transform: translateX(var(--translate-x)) translateY(var(--translate-y)) rotate(720deg);
-            }
-        }
-        
-        /* Add loading indicator */
-        .loading {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 10000;
-        }
     </style>
 </head>
-<body>
-    <div class="loading" id="loading">Memuat data...</div>
+<body class="bg-light font-josefin text-gray-900 relative">
+    <div id="loading" class="loading hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-80 text-white p-5 rounded-lg z-50">Memuat data...</div>
     
-    <div class="wrapper">
-        <div id="overlay" class="overlay">
-            <div class="overlay-content">
-                <button id="toggle-content" class="toggle-button">
-                    <p>erny</p>
-                    <p>zai</p>
-                    <p class="buka">Buka</p>
+    <!-- Wrapper Overlay -->
+    <div id="wrapper" class="wrapper flex w-full h-screen items-center justify-center overflow-hidden bg-light transition-opacity duration-500">
+        <div class="overlay w-[420px] h-full flex justify-center items-center shadow-2xl bg-cover bg-center bg-no-repeat" style="background-image: url('img/intro-bg.png');">
+            <div class="overlay-content flex items-center justify-center w-full h-full text-center backdrop-blur-sm">
+                <button id="toggle-content" class="toggle-button flex flex-col items-center justify-center bg-white shadow-2xl rounded-full w-36 h-36 text-2xl cursor-pointer border-none">
+                    <p class="font-brittany text-3xl font-medium text-[#302b63] m-0 p-0">erny</p>
+                    <p class="font-brittany text-3xl font-medium text-[#302b63] m-0 p-0">zai</p>
+                    <p class="buka text-base font-josefin mt-5 uppercase">Buka</p>
                 </button>
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="petal-container"></div>
+
+    <!-- Main Card Content -->
+    <div id="card" class="card hidden max-w-[420px] mx-auto shadow-2xl bg-white rounded-sm relative overflow-hidden">
+        <div class="petal-container absolute w-full h-full top-0 left-0 z-0"></div>
+        
         <!-- Intro Section -->
-        <section class="intro">
-            <div class="content">
-                <img src="img/bismillah.png" alt="" class="fade-top-1">
-                <p class="title fade-top-2">raikan penyatuan dua hati</p>
-                <h2 class="fade-top-3">erny</h2>
-                <h2 class="fade-top-3">&</h2>
-                <h2 class="fade-top-3">zai</h2>
-                <p class="date fade-top-4">
-                    <span>Khamis</span>
-                    <span>|</span>
-                    <span>25 Disember 2025</span>
+        <section class="intro bg-cover bg-center bg-no-repeat min-h-screen z-50 border-b border-gray-300" style="background-image: url('img/intro-bg.png'), linear-gradient(to right, #f9f5f2, #f9fcff, #f9f5f2);">
+            <div class="content block py-48 text-center">
+                <img src="img/bismillah.png" alt="" class="fade-top-1 w-3/4 h-auto mb-5 mx-auto">
+                <p class="title fade-top-2 mt-2.5 mb-5 uppercase">raikan penyatuan dua hati</p>
+                <h2 class="fade-top-3 font-brittany text-5xl font-normal mt-15">erny</h2>
+                <h2 class="fade-top-3 font-brittany text-5xl font-normal mt-8">&</h2>
+                <h2 class="fade-top-3 font-brittany text-5xl font-normal">zai</h2>
+                <p class="date fade-top-4 mt-25">
+                    <span>Khamis, 25 Disember 2025</span>
                 </p>
             </div>
         </section>
 
         <!-- Event Info Section -->
-        <section class="info">
-            <img src="img/assalamualaikum.png" alt="" class="assalamualaikum reveal fade-bottom">
-            <div class="event-info reveal fade-bottom">
-                <div class="one">
+        <section class="info flex flex-col items-center justify-center gap-2.5 py-12 bg-gradient-to-r from-[#f9f5f2] via-[#f9fcff] to-[#f9f5f2] min-h-screen">
+            <img src="img/assalamualaikum.png" alt="" class="assalamualaikum reveal w-4/5 h-1/3 object-cover relative z-50">
+            <div class="event-info reveal text-center relative z-50">
+                <div class="one flex flex-col items-center justify-center gap-0.75">
                     <p>Dengan penuh kesyukuran</p>
                     <p>kami</p>
-                    <div class="parent">
-                        <p>Ruhaya binti Mohd Yaakub</p>
-						<p>& keluarga</p>
+                    <div class="parent flex flex-col mt-5 mb-5 gap-1.25">
+                        <p class="text-lg uppercase">Ruhaya binti Mohd Yaakub</p>
+                        <p class="text-lg uppercase">& keluarga</p>
                     </div>
                     <p>Menjemput</p>
                     <p>Dato' | Datin | Tuan | Puan | Encik | Cik</p>
                     <p>seisi keluarga hadir ke</p>
                     <p>majlis perkahwinan puteri kami</p>
                 </div>
-                <div class="two">
-                    <p>Nur Ernyza Zabidi</p>
-                    <p>&</p>
-                    <p>Zainuddin Hazin</p>
+                <div class="two flex flex-col mt-12 mb-12 gap-8.75">
+                    <p class="font-brittany text-[#731c3c] text-2xl tracking-widest">Nur Ernyza Zabidi</p>
+                    <p class="font-brittany text-[#731c3c] text-2xl tracking-widest">&</p>
+                    <p class="font-brittany text-[#731c3c] text-2xl tracking-widest">Zainuddin Hazin</p>
                 </div>
-                <div class="three">
-                    <p class="title">Tempat</p>
-                    <p>PINGGIRBALI Homestay & Campsite</p>
-                    <p>Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
-                    <p>16700 Pasir Puteh, Kelantan</p>
+                <div class="three mb-3.75">
+                    <p class="title uppercase mt-7.5 mb-2.5">Tempat</p>
+                    <p class="desc text-lg">PINGGIRBALI Homestay & Campsite</p>
+                    <p class="desc text-lg">Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
+                    <p class="desc text-lg">16700 Pasir Puteh, Kelantan</p>
                 </div>
-                <div class="four">
-                    <p class="title">Tarikh</p>
-                    <p>Khamis, 25 Disember 2025</p>
-                    <p>Bersamaan 05 Rejab 1447H</p>
+                <div class="four mb-3.75">
+                    <p class="title uppercase mt-7.5 mb-2.5">Tarikh</p>
+                    <p class="desc text-lg">Khamis, 25 Disember 2025</p>
+                    <p class="desc text-lg">Bersamaan 05 Rejab 1447H</p>
                 </div>
                 <div class="five">
-                    <p class="title">Masa</p>
-                    <p>12:30 PM — 05:00 PM</p>
+                    <p class="title uppercase mt-7.5 mb-2.5">Masa</p>
+                    <p class="desc text-lg">12:30 PM — 05:00 PM</p>
                 </div>
             </div>
-            <!-- Aturcara & Countdown Section -->
-            <div class="countdown reveal fade-bottom">
-                <!-- Countdown Timer -->
-                <div class="hero connect-page">
-                    <div class="container">
-                        <div class="hero-body">
-                            <div class="campaign campaign-0">
-                                <div class="counter timer">
-                                    <span class="title">Menghitung hari</span>
-                                    <div class="counter-boxes">
-                                        <div class="count-box">
-                                            <h1 class="value day">0</h1>
-                                            <span>Hari</span>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown reveal">
+                <div class="hero connect-page min-h-70">
+                    <div class="container flex-grow mx-auto relative w-auto z-50">
+                        <div class="hero-body py-8 flex flex-col items-center justify-center">
+                            <div class="campaign campaign-0 flex flex-col items-center justify-center w-full">
+                                <div class="counter timer flex flex-col items-center justify-center my-12">
+                                    <span class="title text-gray-500 text-base tracking-widest uppercase mb-2">Menghitung hari</span>
+                                    <div class="counter-boxes flex flex-row">
+                                        <div class="count-box bg-black bg-opacity-80 shadow-lg backdrop-blur rounded-lg flex flex-col items-center justify-center w-25 h-25 mr-1">
+                                            <h1 class="value day text-white text-4xl leading-8 pt-2 m-0">0</h1>
+                                            <span class="text-gray-500 text-xs font-medium tracking-widest uppercase">Hari</span>
                                         </div>
-                                        <div class="count-box">
-                                            <h1 class="value hour">0</h1>
-                                            <span>Jam</span>
+                                        <div class="count-box bg-black bg-opacity-80 shadow-lg backdrop-blur rounded-lg flex flex-col items-center justify-center w-25 h-25 mr-1">
+                                            <h1 class="value hour text-white text-4xl leading-8 pt-2 m-0">0</h1>
+                                            <span class="text-gray-500 text-xs font-medium tracking-widest uppercase">Jam</span>
                                         </div>
-                                        <div class="count-box">
-                                            <h1 class="value minute">0</h1>
-                                            <span>Minit</span>
+                                        <div class="count-box bg-black bg-opacity-80 shadow-lg backdrop-blur rounded-lg flex flex-col items-center justify-center w-25 h-25 mr-1">
+                                            <h1 class="value minute text-white text-4xl leading-8 pt-2 m-0">0</h1>
+                                            <span class="text-gray-500 text-xs font-medium tracking-widest uppercase">Minit</span>
                                         </div>
-                                        <div class="count-box">
-                                            <h1 class="value second">0</h1>
-                                            <span>Saat</span>
+                                        <div class="count-box bg-black bg-opacity-80 shadow-lg backdrop-blur rounded-lg flex flex-col items-center justify-center w-25 h-25">
+                                            <h1 class="value second text-white text-4xl leading-8 pt-2 m-0">0</h1>
+                                            <span class="text-gray-500 text-xs font-medium tracking-widest uppercase">Saat</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1251,31 +201,34 @@
                     </div>
                 </div>
             </div>
+            
             <!-- Aturcara -->
-            <div class="aturcara reveal fade-bottom">
-                <p class="title">aturcara majlis</p>
-                <div class="one">
+            <div class="aturcara reveal flex flex-col gap-7.5 z-50 relative">
+                <p class="title uppercase text-gray-900 text-lg tracking-wider">aturcara majlis</p>
+                <div class="one flex flex-col gap-1.25">
                     <p>Kehadiran Tetamu</p>
-                    <p>09:00 Pagi</p>
+                    <p class="text-gray-500">12:30 PM</p>
                 </div>
-                <div class="two">
+                <div class="two flex flex-col gap-1.25">
                     <p>Ketibaan Pengantin</p>
-                    <p>09:30 Pagi</p>
+                    <p class="text-gray-500">01:30 PM</p>
                 </div>
-                <div class="three">
+                <div class="three flex flex-col gap-1.25">
                     <p>Makan Beradab</p>
-                    <p>10:00 Pagi</p>
+                    <p class="text-gray-500">02:00 PM</p>
                 </div>
-                <div class="four">
+                <div class="four flex flex-col gap-1.25">
                     <p>Majlis Bersurai</p>
-                    <p>12:00 Tengahari</p>
+                    <p class="text-gray-500">05:00 PM</p>
                 </div>
             </div>
-            <div class="ucapan reveal fade-bottom">
-                <div class="container">
-                    <img src="img/ucapan-bg.png" alt="">
-                    <div class="content">
-                        <p>Ya Allah, berkatilah majlis perkahwinan ini, limpahkan baraqah dan rahmat kepada kedua
+            
+            <!-- Ucapan Section -->
+            <div class="ucapan reveal">
+                <div class="container relative max-w-[420px] flex flex-col items-center justify-center mt-7.5 z-50">
+                    <img src="img/ucapan-bg.png" alt="" class="w-full h-auto">
+                    <div class="content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-85/100">
+                        <p class="text-base font-josefin m-0 text-center">Ya Allah, berkatilah majlis perkahwinan ini, limpahkan baraqah dan rahmat kepada kedua
                             mempelai ini.
                             Kurniakanlah mereka
                             zuriat yang soleh dan solehah. Kekalkanlah jodoh mereka di dunia dan di akhirat dan
@@ -1285,174 +238,179 @@
                     </div>
                 </div>
             </div>
-            <div class="rsvp">
-                <h2 class="reveal fade-bottom">Ucapan</h2>
-                <div class="container-message reveal fade-bottom" id="messages-container">
+            
+            <!-- RSVP Section -->
+            <div class="rsvp relative w-full flex flex-col items-center justify-center mt-7.5 mb-12 z-50">
+                <h2 class="reveal uppercase text-gray-900 text-center mb-7.5">Ucapan</h2>
+                <div class="container-message reveal w-95/100 h-[450px] overflow-y-auto py-0 px-4 border-t border-b border-wheat custom-scrollbar" id="messages-container">
                     <!-- Messages will be loaded here by JavaScript -->
                 </div>
-                <div class="beri-ucapan-button reveal fade-bottom">
-                    <button id="kehadiran-btn">
-                        <i class='bx bxs-check-square'></i>
-                        <span>Sahkan Kehadiran</span>
+                <div class="beri-ucapan-button reveal w-full flex items-center justify-center mt-5 mb-12 gap-1.25">
+                    <button id="kehadiran-btn" class="flex items-center justify-center py-4 w-45/100 rounded-lg border border-gray-500 bg-light cursor-pointer gap-2.5 hover:bg-light hover:opacity-80">
+                        <i class='bx bxs-check-square text-base text-primary'></i>
+                        <span class="text-sm uppercase">Sahkan Kehadiran</span>
                     </button>
-                    <button id="ucapan-btn">
-                        <i class='bx bxs-pen'></i>
-                        <span>Berikan Ucapan</span>
+                    <button id="ucapan-btn" class="flex items-center justify-center py-4 w-45/100 rounded-lg border border-gray-500 bg-light cursor-pointer gap-2.5 hover:bg-light hover:opacity-80">
+                        <i class='bx bxs-pen text-base text-primary'></i>
+                        <span class="text-sm uppercase">Berikan Ucapan</span>
                     </button>
                 </div>
             </div>
         </section>
-        <section class="footer">
-            <ul class="menu">
-                <li id="calendar-btn"><i class='bx bx-calendar'></i></li>
-                <li id="location-btn"><i class='bx bx-map'></i></li>
-                <li id="music-btn"><i class='bx bx-music'></i></li>
-                <li id="rsvp-btn"><i class='bx bx-envelope'></i></li>
-                <li id="contact-btn"><i class='bx bx-phone'></i></li>
+        
+        <!-- Footer Menu -->
+        <section class="footer w-full fixed bottom-0 left-0 z-60">
+            <ul class="menu max-w-[420px] shadow-2xl bg-primary rounded-t-2xl h-16 py-0 px-4 mx-auto list-none flex items-center justify-around">
+                <li id="calendar-btn" class="cursor-pointer"><i class='bx bx-calendar text-white text-2xl font-medium'></i></li>
+                <li id="location-btn" class="cursor-pointer"><i class='bx bx-map text-white text-2xl font-medium'></i></li>
+                <li id="music-btn" class="cursor-pointer"><i class='bx bx-music text-white text-2xl font-medium'></i></li>
+                <li id="rsvp-btn" class="cursor-pointer"><i class='bx bx-envelope text-white text-2xl font-medium'></i></li>
+                <li id="contact-btn" class="cursor-pointer"><i class='bx bx-phone text-white text-2xl font-medium'></i></li>
             </ul>
         </section>
     </div>
 
-    <!-- Bottom Modal -->
-    <div id="calendar-menu" class="toggle-menu">
-        <div class="calendar">
-            <h1>Calendar</h1>
-            <p>
-                <span>25 Disember 2025</span>
-                <span>|</span>
-                <span>05 Rejab 1447H</span>
+    <!-- Bottom Modal Menus -->
+    <div id="calendar-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="calendar flex flex-col items-center justify-center py-4">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Calendar</h1>
+            <p class="flex gap-2.5 mb-2.5">
+                <span class="text-base font-josefin text-white">25 Disember 2025</span>
+                <span class="text-base font-josefin text-white">|</span>
+                <span class="text-base font-josefin text-white">05 Rejab 1447H</span>
             </p>
-            <div class="button">
-                <button class="google" onclick="addGoogleCalendar()">
-                    <i class='bx bxl-google'></i>
-                    <span>Tambah ke Kalendar</span>
+            <div class="button flex flex-col gap-2.5 mt-2.5">
+                <button class="google flex items-center justify-center border-none rounded w-62 h-10 cursor-pointer bg-light hover:bg-light hover:opacity-90" onclick="addGoogleCalendar()">
+                    <i class='bx bxl-google text-xl mr-1.25'></i>
+                    <span class="text-base font-josefin">Tambah ke Kalendar</span>
                 </button>
-                <button class="apple" onclick="addAppleCalendar()">
-                    <i class='bx bxl-apple'></i>
-                    <span>Tambah ke Kalendar</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="location-menu" class="toggle-menu">
-        <div class="location">
-            <h1>Lokasi</h1>
-            <p>PINGGIRBALI Homestay & Campsite</p>
-            <p>Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
-            <p>16700 Pasir Puteh, Kelantan</p>
-            <div class="button">
-                <button class="google" onclick="openGoogleMaps()">
-                    <i class='bx bxl-google'></i>
-                    <span>Google Maps</span>
-                </button>
-                <button class="waze" onclick="openWaze()">
-                    <i class="fa-brands fa-waze"></i>
-                    <span>Waze</span>
+                <button class="apple flex items-center justify-center border-none rounded w-62 h-10 cursor-pointer bg-light hover:bg-light hover:opacity-90" onclick="addAppleCalendar()">
+                    <i class='bx bxl-apple text-xl mr-1.25'></i>
+                    <span class="text-base font-josefin">Tambah ke Kalendar</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="music-menu" class="toggle-menu">
-        <div class="music">
-            <h1>Lagu</h1>
-            <p>Canon in D x Cicak</p>
-            <p>(Piano Cover by Nabilah Amin)</p>
-            <audio id="audio-player" controls loop>
+    <div id="location-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="location flex flex-col items-center justify-center py-4">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Lokasi</h1>
+            <p class="text-base font-josefin text-white">PINGGIRBALI Homestay & Campsite</p>
+            <p class="text-base font-josefin text-white">Lot 3284 Jalan, Kuala Semerak, Tok Bali</p>
+            <p class="text-base font-josefin text-white">16700 Pasir Puteh, Kelantan</p>
+            <div class="button flex items-center justify-center mt-5 gap-2.5">
+                <button class="google flex items-center justify-center border-none rounded w-45 h-9 cursor-pointer bg-light hover:bg-light hover:opacity-90" onclick="openGoogleMaps()">
+                    <i class='bx bxl-google text-xl mr-1.25'></i>
+                    <span class="text-base font-josefin">Google Maps</span>
+                </button>
+                <button class="waze flex items-center justify-center border-none rounded w-45 h-9 cursor-pointer bg-light hover:bg-light hover:opacity-90" onclick="openWaze()">
+                    <i class="fa-brands fa-waze text-xl mr-1.25"></i>
+                    <span class="text-base font-josefin">Waze</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="music-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-1.5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="music flex flex-col items-center justify-center py-5">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Lagu</h1>
+            <p class="text-base font-josefin text-wheat text-center">Canon in D x Cicak</p>
+            <p class="text-base font-josefin text-wheat text-center">(Piano Cover by Nabilah Amin)</p>
+            <audio id="audio-player" controls loop class="mt-5 w-full">
                 <source type="audio/mp3" src="audio/canonindxcicakcikgunaim.mp3">
             </audio>
         </div>
     </div>
 
-    <div id="rsvp-menu" class="toggle-menu">
-        <div class="rsvp">
-            <h1>Kehadiran</h1>
-            <div class="button">
-                <button type="button" id="btn-hadir">
-                    <i class='bx bx-check'></i>
-                    <span>Hadir</span>
+    <div id="rsvp-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="rsvp flex flex-col items-center justify-center py-4">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Kehadiran</h1>
+            <div class="button flex items-center justify-around gap-2.5 w-full mt-2.5">
+                <button type="button" id="btn-hadir" class="flex items-center justify-center w-60/100 py-2 px-1.5 border-none rounded gap-1.25 cursor-pointer bg-light hover:bg-light hover:opacity-90">
+                    <i class='bx bx-check text-2xl text-green-600'></i>
+                    <span class="text-base font-josefin">Hadir</span>
                 </button>
-                <button type="button" id="btn-tidak-hadir">
-                    <i class='bx bx-x'></i>
-                    <span>Tidak Hadir</span>
+                <button type="button" id="btn-tidak-hadir" class="flex items-center justify-center w-60/100 py-2 px-1.5 border-none rounded gap-1.25 cursor-pointer bg-light hover:bg-light hover:opacity-90">
+                    <i class='bx bx-x text-2xl text-red-600'></i>
+                    <span class="text-base font-josefin">Tidak Hadir</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="contact-menu" class="toggle-menu">
-        <div class="contact">
-            <h1>Hubungi</h1>
-            <div class="content">
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Nur Ernyza Zabidi</span>
-                            <span>Pengantin Perempuan</span>
+    <div id="contact-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="contact flex flex-col items-center justify-center py-4">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Hubungi</h1>
+            <div class="content w-full flex flex-col items-center justify-center gap-3.75 mt-1.25">
+                <div class="person w-full flex items-center justify-between">
+                    <div class="first-section flex gap-1.25 items-center justify-center">
+                        <i class='bx bxs-user-circle text-3xl text-primary'></i>
+                        <div class="name flex flex-col justify-center">
+                            <span class="text-base font-josefin text-light font-medium">Nur Ernyza Zabidi</span>
+                            <span class="italic text-xs text-gray-300">Pengantin Perempuan</span>
                         </div>
                     </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+601116308427')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+601116308427')"><i class='bx bxl-whatsapp'></i></button>
+                    <div class="second-section flex gap-2.5">
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="makePhoneCall('+601116308427')"><i class='bx bx-phone text-3xl text-light'></i></button>
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="openWhatsApp('+601116308427')"><i class='bx bxl-whatsapp text-3xl text-light'></i></button>
                     </div>
                 </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Irfan Rahim Zabidi</span>
-                            <span>Abang Pengantin Perempuan</span>
+                <div class="person w-full flex items-center justify-between">
+                    <div class="first-section flex gap-1.25 items-center justify-center">
+                        <i class='bx bxs-user-circle text-3xl text-primary'></i>
+                        <div class="name flex flex-col justify-center">
+                            <span class="text-base font-josefin text-light font-medium">Irfan Rahim Zabidi</span>
+                            <span class="italic text-xs text-gray-300">Abang Pengantin Perempuan</span>
                         </div>
                     </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+601119400159')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+601119400159')"><i class='bx bxl-whatsapp'></i></button>
+                    <div class="second-section flex gap-2.5">
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="makePhoneCall('+601119400159')"><i class='bx bx-phone text-3xl text-light'></i></button>
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="openWhatsApp('+601119400159')"><i class='bx bxl-whatsapp text-3xl text-light'></i></button>
                     </div>
                 </div>
-                <div class="person">
-                    <div class="first-section">
-                        <i class='bx bxs-user-circle'></i>
-                        <div class="name">
-                            <span>Ilham Haziq Zabidi</span>
-                            <span>Adik Pengantin Perempuan</span>
+                <div class="person w-full flex items-center justify-between">
+                    <div class="first-section flex gap-1.25 items-center justify-center">
+                        <i class='bx bxs-user-circle text-3xl text-primary'></i>
+                        <div class="name flex flex-col justify-center">
+                            <span class="text-base font-josefin text-light font-medium">Ilham Haziq Zabidi</span>
+                            <span class="italic text-xs text-gray-300">Adik Pengantin Perempuan</span>
                         </div>
                     </div>
-                    <div class="second-section">
-                        <button onclick="makePhoneCall('+60146670082')"><i class='bx bx-phone'></i></button>
-                        <button onclick="openWhatsApp('+60146670082')"><i class='bx bxl-whatsapp'></i></button>
+                    <div class="second-section flex gap-2.5">
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="makePhoneCall('+60146670082')"><i class='bx bx-phone text-3xl text-light'></i></button>
+                        <button class="cursor-pointer bg-transparent border-none flex items-center justify-center" onclick="openWhatsApp('+60146670082')"><i class='bx bxl-whatsapp text-3xl text-light'></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="ucapan-menu" class="toggle-menu">
-        <div class="ucapan-tetamu">
-            <h1>Sampaikan Ucapan</h1>
-            <form id="form-ucapan" class="form-ucapan">
-                <label for="name">Nama Anda</label>
-                <input type="text" id="name" name="name" placeholder="Uzumaki Naruto" required>
-
-                <label for="ucapan">Ucapan</label>
-                <textarea name="message" id="ucapan" cols="30" rows="10" placeholder="Selamat pengantin baru..." required></textarea>
-
-                <div class="button">
-                    <button type="submit" class="hantar" id="hantar">
-                        <i class='bx bxs-paper-plane'></i>
-                        <span>Hantar</span>
+    <div id="ucapan-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg">
+        <div class="ucapan-tetamu flex flex-col items-center justify-center py-4">
+            <h1 class="text-2xl font-medium mb-2.5 text-white uppercase">Sampaikan Ucapan</h1>
+            <form id="form-ucapan" class="form-ucapan flex flex-col gap-2.5 mt-5 w-full">
+                <label for="name" class="text-center text-white text-base font-medium font-josefin">Nama Anda</label>
+                <input type="text" id="name" name="name" placeholder="Uzumaki Naruto" required class="w-full py-3 px-4 rounded-xl text-white">
+                
+                <label for="ucapan" class="text-center text-white text-base font-medium font-josefin">Ucapan</label>
+                <textarea name="message" id="ucapan" cols="30" rows="10" placeholder="Selamat pengantin baru..." required class="w-full resize-none py-3 px-4 text-white rounded-xl"></textarea>
+                
+                <div class="button w-full flex items-center justify-around gap-2.5 mt-5">
+                    <button type="submit" class="hantar flex items-center justify-center w-50/100 border-none rounded py-2 px-1.5 cursor-pointer bg-light hover:bg-light hover:opacity-90 gap-1.25" id="hantar">
+                        <i class='bx bxs-paper-plane text-2xl text-primary'></i>
+                        <span class="text-base font-josefin">Hantar</span>
                     </button>
-                    <button type="button" class="tutup">
-                        <i class='bx bx-x'></i>
-                        <span>Tutup</span>
+                    <button type="button" class="tutup flex items-center justify-center w-50/100 border-none rounded py-2 px-1.5 cursor-pointer bg-light hover:bg-light hover:opacity-90 gap-1.25">
+                        <i class='bx bx-x text-2xl text-red-600'></i>
+                        <span class="text-base font-josefin">Tutup</span>
                     </button>
                 </div>
             </form>
         </div>
     </div>
-    <!-- This container will hold the success message and will be dynamically populated -->
-    <div id="success-menu" class="toggle-menu"></div>
+    
+    <!-- Success Message Container -->
+    <div id="success-menu" class="toggle-menu fixed bottom-[-100%] left-0 right-0 max-w-[400px] mx-auto bg-primary shadow-lg py-5 px-5 transition-bottom duration-400 z-60 rounded-lg"></div>
 
     <script>
         // JSONBin.io Configuration
@@ -1473,39 +431,68 @@
 
         // Show/hide loading
         function showLoading() {
-            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loading').classList.remove('hidden');
         }
 
         function hideLoading() {
-            document.getElementById('loading').style.display = 'none';
+            document.getElementById('loading').classList.add('hidden');
         }
 
         // Load data from JSONBin.io
         async function loadData() {
-            showLoading();
-            try {
-                const response = await fetch(JSONBIN_URL + '/latest', {
-                    method: 'GET',
-                    headers: {
-                        'X-Master-Key': JSONBIN_API_KEY,
-                        'Content-Type': 'application/json'
-                    }
-                });
+			showLoading();
+			try {
+				const response = await fetch(JSONBIN_URL + '/latest', {
+					method: 'GET',
+					headers: {
+						'X-Master-Key': JSONBIN_API_KEY,
+						'Content-Type': 'application/json'
+					}
+				});
 
-                if (response.ok) {
-                    const result = await response.json();
-                    weddingData = result.record || defaultWeddingData;
-                } else {
-                    console.warn('Failed to load data from JSONBin, using default data');
-                    weddingData = { ...defaultWeddingData };
-                }
-            } catch (error) {
-                console.error('Error loading data:', error);
-                weddingData = { ...defaultWeddingData };
-            }
-            updateMessages();
-            hideLoading();
-        }
+				if (response.ok) {
+					const result = await response.json();
+					
+					// Validate and merge data instead of overwriting
+					if (result.record && isValidWeddingData(result.record)) {
+						weddingData = mergeWeddingData(defaultWeddingData, result.record);
+					} else {
+						console.warn('Invalid data structure, using default');
+						weddingData = { ...defaultWeddingData };
+						// Save the correct structure back
+						await saveData();
+					}
+				} else {
+					console.warn('Failed to load data from JSONBin, using default data');
+					weddingData = { ...defaultWeddingData };
+				}
+			} catch (error) {
+				console.error('Error loading data:', error);
+				weddingData = { ...defaultWeddingData };
+			}
+			updateMessages();
+			hideLoading();
+		}
+
+		// Data validation function
+		function isValidWeddingData(data) {
+			return data && 
+				data.kehadiran && 
+				typeof data.kehadiran.hadir === 'number' &&
+				typeof data.kehadiran.tidakHadir === 'number' &&
+				Array.isArray(data.ucapan);
+		}
+
+		// Safe data merging
+		function mergeWeddingData(defaultData, loadedData) {
+			return {
+				kehadiran: {
+					hadir: loadedData.kehadiran?.hadir || defaultData.kehadiran.hadir,
+					tidakHadir: loadedData.kehadiran?.tidakHadir || defaultData.kehadiran.tidakHadir
+				},
+				ucapan: Array.isArray(loadedData.ucapan) ? loadedData.ucapan : defaultData.ucapan
+			};
+		}
 
         // Save data to JSONBin.io
         async function saveData() {
@@ -1538,17 +525,17 @@
             
             if (weddingData.ucapan.length === 0) {
                 container.innerHTML = `
-                    <div class="content-empty">
-                        <p class="empty-message">Tiada ucapan lagi. Silalah beri ucapan kepada dua mempelai ini!</p>
+                    <div class="content-empty flex items-center justify-center w-full h-full overflow-hidden">
+                        <p class="empty-message text-center">Tiada ucapan lagi. Silalah beri ucapan kepada dua mempelai ini!</p>
                     </div>
                 `;
             } else {
                 weddingData.ucapan.forEach(message => {
                     const messageElement = document.createElement('div');
-                    messageElement.className = 'content';
+                    messageElement.className = 'content overflow-hidden w-full whitespace-normal text-ellipsis border-b border-gray-300';
                     messageElement.innerHTML = `
-                        <p class="name">${message.name}</p>
-                        <p class="message">${message.message}</p>
+                        <p class="name text-primary mt-2.5">${message.name}</p>
+                        <p class="message mt-2.5 mb-2.5">${message.message}</p>
                     `;
                     container.appendChild(messageElement);
                 });
@@ -1557,17 +544,17 @@
 
         // Wrapper Overlay
         document.getElementById("toggle-content").addEventListener("click", function () {
-            var wrapper = document.querySelector(".wrapper");
-            var card = document.querySelector(".card");
+            var wrapper = document.getElementById("wrapper");
+            var card = document.getElementById("card");
 
             // Add the 'hidden' class to start the fade out transition
-            wrapper.classList.add("hidden");
+            wrapper.classList.add("opacity-0");
 
             // Wait for the transition to complete
             wrapper.addEventListener("transitionend", function () {
                 // After fade out is complete, hide the wrapper and show the card
-                wrapper.style.display = "none";
-                card.style.display = "block";
+                wrapper.classList.add("hidden");
+                card.classList.remove("hidden");
             }, { once: true });
 
             // Play the audio
@@ -1737,7 +724,7 @@
         function createPetal() {
             if (petalContainer.childElementCount < maxPetals) {
                 const petal = document.createElement('div');
-                petal.className = 'petal';
+                petal.className = 'petal absolute left-[-10px] bg-primary rounded-full opacity-50 animate-fall';
 
                 const startY = Math.random() * 100;
                 const duration = 4 + Math.random() * 2;
@@ -1784,9 +771,12 @@
 
             if (menu.classList.contains('open')) {
                 menu.classList.remove('open');
+                menu.classList.add('bottom-[-100%]');
             } else {
                 closeAllMenus();
                 menu.classList.add('open');
+                menu.classList.remove('bottom-[-100%]');
+                menu.classList.add('bottom-[10%]');
             }
         }
 
@@ -1795,6 +785,8 @@
                 const menu = document.getElementById(menuId);
                 if (menu.classList.contains('open')) {
                     menu.classList.remove('open');
+                    menu.classList.add('bottom-[-100%]');
+                    menu.classList.remove('bottom-[10%]');
                 }
             }
         }
@@ -1815,6 +807,8 @@
             const menu = document.getElementById(menuId);
             if (menu.classList.contains('open')) {
                 menu.classList.remove('open');
+                menu.classList.add('bottom-[-100%]');
+                menu.classList.remove('bottom-[10%]');
             }
         }
 
@@ -1849,12 +843,16 @@
 
                 // Display success message
                 const successMenu = document.getElementById("success-menu");
-                successMenu.innerHTML = "<div class='success-message'><i class='bx bx-check'></i><p>Mesej anda berjaya dihantar!</p></div>";
+                successMenu.innerHTML = "<div class='success-message flex flex-row items-center justify-start py-4 px-4 pb-5 gap-2.5'><i class='bx bx-check text-6xl text-green-400'></i><p class='text-base font-josefin text-white'>Mesej anda berjaya dihantar!</p></div>";
                 successMenu.classList.add("open");
+                successMenu.classList.remove('bottom-[-100%]');
+                successMenu.classList.add('bottom-[10%]');
 
                 // Add timer
                 setTimeout(function() {
                     successMenu.classList.remove("open");
+                    successMenu.classList.add('bottom-[-100%]');
+                    successMenu.classList.remove('bottom-[10%]');
                 }, 3000);
 
                 // Close the ucapan menu
@@ -1878,12 +876,16 @@
 
             // Display the success message
             const successMenu = document.getElementById("success-menu");
-            successMenu.innerHTML = `<div class='success-message'><i class='${iconClass}'></i><p>${successMessage}</p></div>`;
+            successMenu.innerHTML = `<div class='success-message flex flex-row items-center justify-start py-4 px-4 pb-5 gap-2.5'><i class='${iconClass}'></i><p class='text-base font-josefin text-white'>${successMessage}</p></div>`;
             successMenu.classList.add("open");
+            successMenu.classList.remove('bottom-[-100%]');
+            successMenu.classList.add('bottom-[10%]');
 
             // Add timer
             setTimeout(function() {
                 successMenu.classList.remove("open");
+                successMenu.classList.add('bottom-[-100%]');
+                successMenu.classList.remove('bottom-[10%]');
             }, 3000);
 
             // Close the menu
@@ -1893,11 +895,11 @@
         }
 
         document.getElementById("btn-hadir").onclick = function() {
-            incrementCount('hadir', "Kami menantikan kedatangan anda!", 'bx bxs-wink-smile', 'rsvp-menu');
+            incrementCount('hadir', "Kami menantikan kedatangan anda!", 'bx bxs-wink-smile text-6xl text-green-400', 'rsvp-menu');
         };
 
         document.getElementById("btn-tidak-hadir").onclick = function() {
-            incrementCount('tidakHadir', "Maaf, mungkin lain kali.", 'bx bxs-sad', 'rsvp-menu');
+            incrementCount('tidakHadir', "Maaf, mungkin lain kali.", 'bx bxs-sad text-6xl text-gray-400', 'rsvp-menu');
         };
 
         // Initialize
